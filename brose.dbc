@@ -35,43 +35,56 @@ BS_:
 
 BU_:
 
-BO_ 513 DRIVE_PROFIL: 5 Vector__XXX
-    SG_ light : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 512 DRIVE: 8 Vector__XXX
+	SG_ battery_level_relative : 0|16@1- (1,0) [0|0] "" Vector__XXX
+	SG_ unknown : 16|48@1+ (1,0) [0|0] "" Vector__XXXs
+
+BO_ 513 DRIVE_REQUEST: 5 Vector__XXX
+	SG_ unknown : 0|33@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ light : 33|1@1+ (1,0) [0|0] "" Vector__XXX
     SG_ motor : 36|1@1+ (1,0) [0|0] "" Vector__XXX
     SG_ profil : 37|3@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 514 DRIVE_ODO: 8 Vector__XXX
-    SG_ unknown : 0|32@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ odometer : 32|32@1+ (0.001,0) [0|0] "km" Vector__XXX
-
+	SG_ unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ motor_temp : 8|8@1- (1,0) [0|0] "m" Vector__XXX
+	SG_ unknown_1 : 16|16@1+ (1,0) [0|0] "m" Vector__XXX
+	SG_ odometer : 32|32@1+ (1,0) [0|0] "m" Vector__XXX
+	
 BO_ 515 DRIVE_TRIP: 8 Vector__XXX
-    SG_ unknown_1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ unknown_2 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ unknown_3 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ estimated_range : 48|16@1+ (1,0) [0|0] "km" Vector__XXX
+	SG_ threadle_cadence : 0|16@1+ (1,0) [0|0] "?" Vector__XXXs
+	SG_ unknown_pedal_trq : 16|16@1+ (1,0) [0|0] "?" Vector__XXXs
+	SG_ threadle_power : 32|16@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ estimated_range : 48|16@1+ (1,0) [0|0] "km" Vector__XXX
+
+BO_ 768 DRIVE_UNIT: 8 Vector__XXX
+	SG_ profil : 0|8@1+ (0.00390625,0) [0|0] "" Vector__XXX
+	SG_ unknown : 8|56@1+ (1,0) [0|0] "" Vector__XXXs
 
 BO_ 1024 BATT_STATUS: 8 Vector__XXX	
-    SG_ temperatureornot : 48|16@1+ (1,0) [0|0] "C" Vector__XXX
-    SG_ unknown_1 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ state_register : 16|16@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ unknown_2 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ state_register : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ temperatureornot : 48|16@1+ (1,0) [0|0] "C" Vector__XXX
 
 BO_ 1025 BATT_POWER: 8 Vector__XXX
-    SG_ actual_current : 32|32@1+ (0.001,0) [0|0] "A" Vector__XXX
-    SG_ actual_voltage : 0|32@1- (0.001,0) [0|0] "V" Vector__XXX
-
+	SG_ actual_voltage : 0|32@1- (1,0) [0|0] "mV" Vector__XXX
+	SG_ actual_current : 32|32@1+ (1,0) [0|0] "mA" Vector__XXX
+	
 BO_ 1026 BATT_CAPACITY: 8 Vector__XXX
-    SG_ battery_level_relative : 0|32@1+ (1,0) [0|100] "%" Vector__XXX
-    SG_ battery_level_absolute : 32|32@1+ (0.001,0) [0|0] "wh" Vector__XXX
+	SG_ battery_level_relative : 0|32@1+ (1,0) [0|100] "%" Vector__XXX
+	SG_ battery_level_absolute : 32|32@1+ (1,0) [0|0] "mwh" Vector__XXX
 
 BO_ 1027 BATT_INFO: 8 Vector__XXX
-    SG_ state_of_health : 0|16@1+ (1,0) [0|100] "%" Vector__XXX
+	SG_ state_of_health : 0|16@1+ (1,0) [0|100] "%" Vector__XXX
     SG_ load_cycles : 16|16@1+ (1,0) [0|100] "" Vector__XXX
-    SG_ full_charge_capacity : 32|32@1+ (0.001,0) [0|0] "wh" Vector__XXX
+	SG_ full_charge_capacity : 32|32@1+ (1,0) [0|0] "mwh" Vector__XXX
 
-CM_ BO_ 513 "Drive Unit profil";
+CM_ BO_ 512 "Drive Unit";
+CM_ BO_ 513 "Drive Unit request";
 CM_ BO_ 514 "Drive Unit Odometer";
 CM_ BO_ 515 "Drive Unit Trip";
+CM_ BO_ 515 "Drive Unit info";
 CM_ BO_ 1026 "Baterry capacity";
 CM_ BO_ 1025 "Battery power";
 CM_ BO_ 1024 "Battery status";
@@ -90,5 +103,5 @@ BA_DEF_DEF_  "ProtocolType" "";
 BA_DEF_DEF_  "DatabaseCompiler" "";
 BA_ "ProtocolType" "J1939";
 BA_ "BusType" "CAN";
-BA_ "DatabaseCompiler" "CSS ELECTRONICS (WWW.CSSELECTRONICS.COM)";
+BA_ "DatabaseCompiler" "belese";
 BA_ "DatabaseVersion" "1.0.0";
