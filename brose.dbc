@@ -35,36 +35,60 @@ BS_:
 
 BU_:
 
-BO_ 512 DRIVE: 8 Vector__XXX
-	SG_ battery_level_relative : 0|16@1- (1,0) [0|0] "" Vector__XXX
-	SG_ unknown : 16|48@1+ (1,0) [0|0] "" Vector__XXXs
+BO_ 12 unknown: 8 Vector__XXX
+	SG_ bike_on_maybe : 63|1@1+ (1,0) [0|1] "" Vector__XXX
+	SG_ support_profil : 60|3@1+ (1,0) [0|4] "" Vector__XXX
+	SG_ unknown_bit : 56|1@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ unknown_bit_0 : 57|1@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ unknown_bit_1 : 58|1@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ unknown_bit_2 : 59|1@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ unknown : 0|56@1+ (1,0) [0|0] "" Vector__XXXs
+
+BO_ 512 DRIVE_BATTERY: 8 Vector__XXX
+	SG_ battery_level_relative : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ battery_level_absolute : 16|32@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_loop_0_1_2_1_0 : 48|16@1+ (1,0) [0|0] "" Vector__XXXs
 
 BO_ 513 DRIVE_REQUEST: 5 Vector__XXX
-	SG_ unknown : 0|33@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ speed : 0|16@1- (1,0) [0|0] "" Vector__XXX
+	SG_ pedal_trq : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ walk : 32|1@1+ (1,0) [0|0] "" Vector__XXX
 	SG_ light : 33|1@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ motor : 36|1@1+ (1,0) [0|0] "" Vector__XXX
-    SG_ profil : 37|3@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_1 : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ switch_off_maybe : 35|1@1+ (1,0) [0|0] "" Vector__XXX
+    SG_ motor_assist : 36|1@1+ (1,0) [0|0] "" Vector__XXX
+    SG_ support_profil : 37|3@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 514 DRIVE_ODO: 8 Vector__XXX
 	SG_ unknown : 0|8@1+ (1,0) [0|0] "" Vector__XXXs
-	SG_ motor_temp : 8|8@1- (1,0) [0|0] "m" Vector__XXX
-	SG_ unknown_1 : 16|16@1+ (1,0) [0|0] "m" Vector__XXX
+	SG_ motor_temp : 8|8@1- (1,0) [0|0] "C" Vector__XXX
+	SG_ unknown_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
 	SG_ odometer : 32|32@1+ (1,0) [0|0] "m" Vector__XXX
 	
 BO_ 515 DRIVE_TRIP: 8 Vector__XXX
 	SG_ threadle_cadence : 0|16@1+ (1,0) [0|0] "?" Vector__XXXs
-	SG_ unknown_pedal_trq : 16|16@1+ (1,0) [0|0] "?" Vector__XXXs
-	SG_ threadle_power : 32|16@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ pedal_trq : 16|16@1+ (1,0) [0|0] "?" Vector__XXXs
+	SG_ threadle_power : 32|16@1+ (1,0) [0|0] "?" Vector__XXXs
 	SG_ estimated_range : 48|16@1+ (1,0) [0|0] "km" Vector__XXX
 
+BO_ 516 error_trame_maybe: 8 Vector__XXX
+	SG_ unknown_always_0 : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 768 DRIVE_UNIT: 8 Vector__XXX
-	SG_ profil : 0|8@1+ (0.00390625,0) [0|0] "" Vector__XXX
-	SG_ unknown : 8|56@1+ (1,0) [0|0] "" Vector__XXXs
+	SG_ support_profil : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ walk_assist_todo_mask : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ light_todo_mask : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_byte_2_often_90_but_jump : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_byte_3_current_scaling_maybe : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_byte_4_always_0 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_byte_5_support_profile_scale_maybe : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ Counter_0_15 : 56|8@1+ (1,0) [0|15] "" Vector__XXX
+	
 
 BO_ 1024 BATT_STATUS: 8 Vector__XXX	
-	SG_ unknown_1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_always_1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
 	SG_ state_register : 16|16@1+ (1,0) [0|0] "" Vector__XXX
-	SG_ unknown_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_2_always_4095 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
 	SG_ temperatureornot : 48|16@1+ (1,0) [0|0] "C" Vector__XXX
 
 BO_ 1025 BATT_POWER: 8 Vector__XXX
@@ -80,6 +104,19 @@ BO_ 1027 BATT_INFO: 8 Vector__XXX
     SG_ load_cycles : 16|16@1+ (1,0) [0|100] "" Vector__XXX
 	SG_ full_charge_capacity : 32|32@1+ (1,0) [0|0] "mwh" Vector__XXX
 
+BO_ 1638 motor_1: 8 Vector__XXX
+	SG_ firmware_4 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ firmware_0 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ firmware_1 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ firmware_2 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ firmware_3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unknown_miss_firmware_5_maybe_hex : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1641 unlock_batt: 3 Vector__XXX
+	SG_ stage_register : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+	SG_ unlock_batt : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+CM_ BO_ 12 "unknown";
 CM_ BO_ 512 "Drive Unit";
 CM_ BO_ 513 "Drive Unit request";
 CM_ BO_ 514 "Drive Unit Odometer";
